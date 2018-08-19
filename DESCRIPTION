@@ -1,0 +1,45 @@
+Package: rseqR
+Type: Package
+Title: RNA-seq data processing pipeline
+Version: 0.0.1
+Authors@R: c(person("Anil", "Chalisey", , "anilchalisey@gmail.com", role = c("aut", "cre")))
+Maintainer: Anil Chalisey <anilchalisey@gmail.com>
+Description: An R-based pipeline to analyse RNA-seq data. This pipeline performs
+  quality control of reads, generates gene and transcript level counts, performs 
+  differential analysis, and gene pathway enrichment analyses.
+Depends: R (>= 3.5.0)
+SystemRequirements: Salmon, Java, FastQC, MultiQC, Cutadapt, TrimGalore!
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
+Imports: utils,
+    parallel,
+    data.table,
+    dplyr,
+    tximport,
+    purrr,
+    edgeR,
+    limma,
+    stats,
+    grDevices,
+    ggplot2,
+    ggrepel,
+    doParallel,
+    DESeq2,
+    SummarizedExperiment,
+    magrittr,
+    ggdendro,
+    viridis,
+    grid,
+    gridExtra,
+    gtable,
+    tools,
+    crayon,
+    UpSetR,
+    gage,
+    org.Hs.eg.db,
+    org.Mm.eg.db,
+    data.tree
+URL: https://github.com/anilchalisey/rseqR
+BugReports: https://github.com/anilchalisey/rseqR/issues

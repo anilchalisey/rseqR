@@ -1,0 +1,13 @@
+file1	condition	sample
+raw-data/sample1_1.fastq	WT	S1
+raw-data/sample2_1.fastq	KO1	S2
+raw-data/sample3_1.fastq	KO2	S3
+raw-data/sample4_1.fastq	WT	S4
+raw-data/sample5_1.fastq	KO1	S5
+raw-data/sample6_1.fastq	KO2	S6
+raw-data/sample7_1.fastq	WT	S7
+raw-data/sample8_1.fastq	KO1	S8
+raw-data/sample9_1.fastq	KO2	S9
+raw-data/sample10_1.fastq	WT	S10
+raw-data/sample11_1.fastq	KO1	S11
+raw-data/sample12_1.fastq	KO2	S12

@@ -1,0 +1,13 @@
+file1	file2	condition	sample	batch
+raw-data/sample1_1.fastq	raw-data/sample1_2.fastq	WT	S1	replicate1
+raw-data/sample2_1.fastq	raw-data/sample2_2.fastq	KO1	S2	replicate1
+raw-data/sample3_1.fastq	raw-data/sample3_2.fastq	KO2	S3	replicate1
+raw-data/sample4_1.fastq	raw-data/sample4_2.fastq	WT	S4	replicate2
+raw-data/sample5_1.fastq	raw-data/sample5_2.fastq	KO1	S5	replicate2
+raw-data/sample6_1.fastq	raw-data/sample6_2.fastq	KO2	S6	replicate2
+raw-data/sample7_1.fastq	raw-data/sample7_2.fastq	WT	S7	replicate3
+raw-data/sample8_1.fastq	raw-data/sample8_2.fastq	KO1	S8	replicate3
+raw-data/sample9_1.fastq	raw-data/sample9_2.fastq	KO2	S9	replicate3
+raw-data/sample10_1.fastq	raw-data/sample10_2.fastq	WT	S10	replicate4
+raw-data/sample11_1.fastq	raw-data/sample11_2.fastq	KO1	S11	replicate4
+raw-data/sample12_1.fastq	raw-data/sample12_2.fastq	KO2	S12	replicate4
