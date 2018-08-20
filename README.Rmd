@@ -26,7 +26,7 @@ The rseqR package does not attempt to replace the tools it uses, but instead pro
 # Installation
 
 ## Command line tools
-The workflow used by rseqR requires the installation of several command-line tools: [Fastqc v0.11.7](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Fastqc]), [MultiQC v1.6](http://multiqc.info/), and [Salmon](https://combine-lab.github.io/salmon/).  Installation instructions for these may be found at their respective websites, but a guide is given below for convenience.
+The workflow used by rseqR requires the installation of several command-line tools: [Fastqc (v0.11.7)](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Fastqc]), [MultiQC (v1.6)](http://multiqc.info/), and [Salmon (v0.10.2)](https://combine-lab.github.io/salmon/).  Installation instructions for these may be found at their respective websites, but a guide is given below for convenience.
 
 If using a Unix-based system, open up a terminal and follow the commands as is.  If using the windows subsystem for linux (WSL) on Windows 10 then WSL must first be set up as detailed [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10).  Once WSL is up and running, then the tools may be installed as on any Unix-based system.
 

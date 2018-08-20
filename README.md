@@ -1,4 +1,4 @@
-# rseqR <img src="inst/extdata/MULTIQC/Logo.png" align="right" />
+# rseqR <img src="man/figures/logo.png" align="right" />
 
 The rseqR package is designed to perform differential analysis of
 RNA-seq data. It provides tools to:
@@ -20,9 +20,9 @@ instead provides an automated environment in which to use them.
 
 The workflow used by rseqR requires the installation of several
 command-line tools: [Fastqc
-v0.11.7](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Fastqc%5D),
-[MultiQC v1.6](http://multiqc.info/), and
-[Salmon](https://combine-lab.github.io/salmon/). Installation
+(v0.11.7)](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Fastqc%5D),
+[MultiQC (v1.6)](http://multiqc.info/), and [Salmon
+(v0.10.2)](https://combine-lab.github.io/salmon/). Installation
 instructions for these may be found at their respective websites, but a
 guide is given below for convenience.
 
