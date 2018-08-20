@@ -14,6 +14,9 @@ RNA-seq data. It provides tools to:
 The rseqR package does not attempt to replace the tools it uses, but
 instead provides an automated environment in which to use them.
 
+The website for rseqR may be found
+[here](https://anilchalisey.github.io/rseqR/).
+
 # Installation
 
 ## Command line tools
