@@ -43,6 +43,8 @@ Imports: utils,
     data.tree,
     foreach,
     GO.db,
-    matrixStats
+    matrixStats,
+    RColorBrewer,
+    reshape2
 URL: https://github.com/anilchalisey/rseqR, https://anilchalisey.github.io/rseqR/
 BugReports: https://github.com/anilchalisey/rseqR/issues

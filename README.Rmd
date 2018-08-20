@@ -84,7 +84,7 @@ install.from.cran <- pkgs[!(c("utils", "parallel", "dplyr", "data.table", "purrr
                               "grDevices", "ggplot2", "ggrepel", "doParallel", "magrittr",
                               "ggdendro", "viridis", "grid", "gridExtra", "gtable", "tools",
                               "crayon", "UpSetR", "devtools", "data.tree", "foreach", 
-                              "matrixStats") %in% pkgs)]
+                              "matrixStats", "reshape2", "RColorBrewer") %in% pkgs)]
 install.from.bc <- pkgs[!(c("tximport", "edgeR", "DESeq2", "limma", "gage", "org.Hs.eg.db", 
                             "org.Mm.eg.db", "SummarizedExperiment", "GO.db") %in% pkgs)]
 
