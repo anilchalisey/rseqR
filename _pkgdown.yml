@@ -1,0 +1,51 @@
+url: https://github.com/anilchalisey
+
+template:
+  params:
+    bootswatch: cosmo
+
+authors:
+  Anil Chalisey:
+    href: https://github.com/anilchalisey
+  
+reference:
+  - title: Full pipeline
+    contents: 
+      - run_dea
+  
+  - title: Data import functions
+    contents: 
+      - check_sample
+      - sanity_check
+      - run_tximport
+  
+  - title: FASTQ analysis
+    contents:
+      - run_fastqc
+      - trim_fastq
+      - run_multiqc
+      
+  - title: Salmon functions
+    contents:
+      - build_index
+      - run_salmon
+  
+  - title: Differential analysis
+    contents:
+      - deseq2_analysis
+      - edger_analysis
+      - limma_voom_analysis
+      - exploratory_analysis_edger
+      - exploratory_analysis_deseq2
+      
+  - title: Plotting functions
+    contents:
+      - starts_with("make_")
+      
+  - title: Miscellaneous functions
+    contents:
+      - pathway_analysis
+      - annotate_data
+      
+  
+

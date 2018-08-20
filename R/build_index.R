@@ -16,14 +16,6 @@
 #' quantification of transcript expression. Nature methods, 14(4),417.
 #' \url{https://www.nature.com/articles/nmeth.4197}
 #'
-#' @examples
-#'
-#' #Running this function will take some time.
-#' \donttest{
-#' build_index(species="human",kmer=31,
-#' ens_release=92, dest.dir=tempdir())
-#' }
-#'
 #' @export
 
 build_index <- function(species = c("human", "mouse"), kmer = 31,

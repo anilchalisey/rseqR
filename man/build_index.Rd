@@ -24,15 +24,6 @@ directory of index files
 \description{
 \code{build_index} for mapping reads using Salmon.
 }
-\examples{
-
-#Running this function will take some time.
-\donttest{
-build_index(species="human",kmer=31,
-ens_release=92, dest.dir=tempdir())
-}
-
-}
 \references{
 Rob Patro, Geet Duggal, Michael I. Love, Rafael A. Irizarry, and
 Carl Kingsford (2017): Salmon provides fast and bias-aware

@@ -1,7 +1,7 @@
 ---
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 ```{r, echo = FALSE}
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# rseqR <img src="inst/extdata/MULTIQC/Logo.png" align="right" />
+# rseqR <img src="man/figures/logo.png" align="right" />
 
 The rseqR package is designed to perform differential analysis of RNA-seq data.  It provides tools to:
 
