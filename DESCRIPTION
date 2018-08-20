@@ -40,6 +40,9 @@ Imports: utils,
     gage,
     org.Hs.eg.db,
     org.Mm.eg.db,
-    data.tree
+    data.tree,
+    foreach,
+    GO.db,
+    matrixStats
 URL: https://github.com/anilchalisey/rseqR, https://anilchalisey.github.io/rseqR/
 BugReports: https://github.com/anilchalisey/rseqR/issues
