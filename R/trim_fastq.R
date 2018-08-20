@@ -91,7 +91,7 @@
 #' @export
 #'
 #' @importFrom parallel makeCluster stopCluster
-#' @importFrom foreach foreach
+#' @importFrom foreach foreach %dopar%
 #' @importFrom doParallel registerDoParallel
 
 trim_fastq <- function(fastq1, fastq2 = NULL, adapter1 = NULL, adapter2 = NULL,

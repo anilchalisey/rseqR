@@ -5,13 +5,15 @@
 #' @importFrom doParallel registerDoParallel
 #' @importFrom DESeq2 DESeqDataSetFromTximport counts DESeq results
 #' @importFrom edgeR cpm
-#' @importFrom utils combn
+#' @importFrom utils combn write.table
 #' @importFrom grDevices png dev.off
-#' @importFrom dplyr as_tibble arrange
+#' @importFrom dplyr as_tibble arrange desc
 #'
 #' @export
 
 deseq2_analysis <- function(metadata, species) {
+  
+  log2FoldChange <- padj <- NULL
 
   threads <- metadata$threads
   doParallel::registerDoParallel(threads)
@@ -60,14 +62,14 @@ deseq2_analysis <- function(metadata, species) {
     make_volcano(input = output, proc = "DESeq2")
     move_file(tomove = c("DESeq2_volcano.png", "DESeq2_MAplot.png"), out.sub[[i]])
     DEG[[i]] <- subset(output, padj < 0.05)
-    write.table(
+    utils::write.table(
       x = as.data.frame(output),
       file = file.path(out.sub[[i]], "DESeq2_differential_expression.txt"),
       sep = "\t",
       row.names = FALSE,
       quote = FALSE)
 
-    write.table(
+    utils::write.table(
       x = as.data.frame(DEG[[i]][, c("gene", "symbol")]),
       file = file.path(out.sub[[i]], "DESeq2_DEG.txt"),
       sep = "\t",
@@ -103,5 +105,5 @@ deseq2_analysis <- function(metadata, species) {
   dev.off()
 
   return(lapply(DEG, function (x) dplyr::as_tibble(x) %>%
-                  dplyr::arrange(desc(abs(log2FoldChange)), padj)))
+                  dplyr::arrange(dplyr::desc(abs(log2FoldChange)), padj)))
 }

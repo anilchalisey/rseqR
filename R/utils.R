@@ -87,6 +87,9 @@ make_design <- function(sample.info) {
 #' @importFrom magrittr set_colnames
 
 ens2symbol <- function(result, columns.of.interest, colnames, species) {
+  
+  symbol <- NULL
+  
   if (species == "human") ann <- grch38 %>% dplyr::select(gene = "ensgene", symbol) %>% dplyr::distinct()
   if (species == "mouse") ann <- grcm38 %>% dplyr::select(gene = "ensgene", symbol) %>% dplyr::distinct()
   output <- cbind(gene = row.names(result), as.data.frame(result), stringsAsFactors = FALSE)[, columns.of.interest] %>%

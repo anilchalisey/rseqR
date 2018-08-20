@@ -6,6 +6,7 @@
 #' @importFrom grDevices png dev.off
 #' @importFrom DESeq2 plotDispEsts vst
 #' @importFrom SummarizedExperiment assay
+#' @importFrom utils write.table
 
 exploratory_analysis_deseq2 <- function(dds, species, metadata) {
   grDevices::png(
@@ -34,12 +35,12 @@ exploratory_analysis_deseq2 <- function(dds, species, metadata) {
 
   make_PCA(normcounts, "DESeq2", metadata$sampleinfo)
 
-  write.table(
+  utils::write.table(
     x = rlddf,
     file = "DESeq2_vst_normalisedcounts.txt",
     sep = "\t", row.names = FALSE, quote = FALSE
   )
-  write.table(
+  utils::write.table(
     x = rlddf[, c("gene", "symbol")],
     file = "DESeq2_consideredgenes.txt",
     sep = "\t", row.names = FALSE, quote = FALSE

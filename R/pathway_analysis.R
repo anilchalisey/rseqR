@@ -12,9 +12,13 @@
 #' @import org.Hs.eg.db
 #' @import org.Mm.eg.db
 #' @importFrom dplyr mutate filter select
+#' @importFrom utils write.table
 
 
 pathway_analysis <- function(x, species = c("human", "mouse")) {
+  
+  . <- q.val <- kegg.id <- pathway <- GO.id <- NULL
+  
   match.arg(species, c("human", "mouse"))
   if (species == "human") {kid <- "hsa"}
   if (species == "mouse") {kid <- "mmu"}
@@ -83,7 +87,7 @@ pathway_analysis <- function(x, species = c("human", "mouse")) {
   create_dir("pathway_results")
 
   sapply(names(towrite), function(x) {
-    write.table(towrite[[x]],
+    utils::write.table(towrite[[x]],
                 file = file.path("pathway_results", paste(x, "txt", sep = ".")),
                 row.names = FALSE, col.names = TRUE, sep = "\t",
                 quote = FALSE)

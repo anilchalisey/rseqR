@@ -7,6 +7,8 @@
 #' @import ggplot2
 
 make_volcano <- function(input, proc = c("Limma-voom", "edgeR", "DESeq2")) {
+  
+  xval <- yval <- Sig <- NULL
 
   proc <- match.arg(proc)
 

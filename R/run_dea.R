@@ -44,6 +44,8 @@
 #' sensitivity (allow more reads to map and more transcripts to be detected), but may
 #' decrease specificity as orphaned alignments are more likely to be spurious.
 #' For more details see Salmon documentation.
+#' @param salmon a character string specifying the path to the salmon executable.
+#' [DEFAULT = "salmon"].
 #'
 #' @export
 #'

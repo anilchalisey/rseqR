@@ -13,9 +13,14 @@
 #' @importFrom grid unit.pmax gpar grid.rect grid.draw
 #' @importFrom gridExtra arrangeGrob
 #' @importFrom gtable gtable_add_cols
+#' @importFrom RColorBrewer brewer.pal
+#' @importFrom reshape2 melt
 #' @import ggplot2
 
 make_heatmap <- function(dds, DEG) {
+  
+  . <- gene <- x <- y <- xend <- yend <- variable <- value <- condition <- NULL
+  
   deseq.vst <- DESeq2::vst(dds) %>%
     SummarizedExperiment::assay() %>%
     as.data.frame() %>%

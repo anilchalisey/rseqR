@@ -11,6 +11,9 @@
 #' @importFrom ggrepel geom_text_repel
 
 make_PCA <- function(normcounts, proc, sample.info) {
+  
+  PC1 <- PC2 <- Condition <- NULL
+  
   rv <- matrixStats::rowVars(normcounts)
   pca <- stats::prcomp(t(normcounts[order(rv, decreasing = TRUE)[
     seq_len(min(500, length(rv)))

@@ -42,6 +42,9 @@ be used by FastQC. [DEFAULT = maximum number of available threads - 1].}
 \item{index.dir}{directory of the index files needed for read mapping using Salmon.
 See function \code{'build_index()'}.}
 
+\item{salmon}{a character string specifying the path to the salmon executable.
+[DEFAULT = "salmon"].}
+
 \item{bam}{logical, if \code{TRUE} then create a pseudo-alignment BAM file.
 [Default = \code{FALSE}]}
 

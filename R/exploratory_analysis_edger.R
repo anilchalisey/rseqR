@@ -6,6 +6,7 @@
 #'
 #' @importFrom grDevices png dev.off
 #' @importFrom edgeR cpm plotBCV
+#' @importFrom utils write.table
 
 exploratory_analysis_edger <- function(disp, species, metadata) {
   grDevices::png(
@@ -26,12 +27,12 @@ exploratory_analysis_edger <- function(disp, species, metadata) {
   )
 
   make_PCA(normalised.counts, "edgeR", metadata$sampleinfo)
-  write.table(
+  utils::write.table(
     x = normalised.counts_names,
     file = "edgeR_normalisedcounts_cpm.txt",
     sep = "\t", row.names = FALSE, quote = FALSE
   )
-  write.table(
+  utils::write.table(
     x = normalised.counts_names[, c("gene", "symbol")],
     file = "edgeR_consideredgenes.txt",
     sep = "\t", row.names = FALSE, quote = FALSE

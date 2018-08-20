@@ -3,6 +3,7 @@
 #' @inheritParams run_dea
 #'
 #' @importFrom utils read.table
+#' @importFrom stats relevel
 
 check_sample <- function(sample.info, reference = NULL) {
   if (!file.exists(sample.info)) {
@@ -81,7 +82,7 @@ check_sample <- function(sample.info, reference = NULL) {
     sample.info$condition <- factor(sample.info$condition)
   } else {
       if (length(reference) == 1) {
-      sample.info$condition <- relevel(factor(sample.info$condition), ref = reference)
+      sample.info$condition <- stats::relevel(factor(sample.info$condition), ref = reference)
     } else {
       if (length(reference) > 1) {
         if (length(setdiff(sample.info$condition, reference)) > 0) {

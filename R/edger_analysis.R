@@ -8,15 +8,18 @@
 #'
 #' @importFrom edgeR cpm calcNormFactors DGEList scaleOffset
 #' @importFrom edgeR estimateDisp glmQLFit topTags
-#' @importFrom utils combn
+#' @importFrom utils combn write.table
 #' @importFrom purrr map
 #' @importFrom limma makeContrasts
 #' @importFrom stats model.matrix
-#' @importFrom dplyr as_tibble arrange
+#' @importFrom dplyr as_tibble arrange desc
 #'
 #' @export
 
 edger_analysis <- function(metadata, species = c("human", "mouse")) {
+  
+  . <- FDR <- logFC <- NULL
+  
   counts <- metadata$counts$A$counts
   group <- metadata$sampleinfo$condition
   minLibSize <- min(colSums(counts))
@@ -71,14 +74,14 @@ edger_analysis <- function(metadata, species = c("human", "mouse")) {
     make_MA(output, fdr = 0.05, label.rectangle = TRUE, proc = "edgeR", top = 20, select.method = "logfc")
     DEG[[i]] <- subset(output, FDR < 0.05)
 
-    write.table(
+    utils::write.table(
       x = ma.data,
       file = file.path(out.sub[[i]], "edgeR_differential_expression.txt"),
       sep = "\t",
       row.names = FALSE,
       quote = FALSE)
 
-    write.table(
+    utils::write.table(
       x = as.data.frame(DEG[[i]][, c("gene", "symbol")]),
       file = file.path(out.sub[[i]], "edgeR_DEG.txt"),
       sep = "\t",
@@ -97,6 +100,6 @@ edger_analysis <- function(metadata, species = c("human", "mouse")) {
                       "using edgeR-glmQLFTest.\n\n", collapse=" "))
   })
 
-  return(lapply(DEG, function (x) dplyr::as_tibble(x) %>% dplyr::arrange(desc(abs(logFC)), FDR)))
+  return(lapply(DEG, function (x) dplyr::as_tibble(x) %>% dplyr::arrange(dplyr::desc(abs(logFC)), FDR)))
   }
 

@@ -5,13 +5,16 @@
 #' @importFrom edgeR cpm DGEList calcNormFactors
 #' @importFrom limma voom makeContrasts lmFit contrasts.fit eBayes topTable
 #' @importFrom stats model.matrix
-#' @importFrom utils combn
+#' @importFrom utils combn write.table
 #' @importFrom purrr map
-#' @importFrom dplyr as_tibble arrange
+#' @importFrom dplyr as_tibble arrange desc
 #'
 #' @export
 
 limma_voom_analysis <- function(metadata, species = c("human", "mouse")) {
+  
+  . <- padj <- logFC <- NULL
+  
   design <- stats::model.matrix(metadata$design, data = metadata$sampleinfo)
   counts <- metadata$counts$B$counts
   group <- metadata$sampleinfo$condition
@@ -32,9 +35,9 @@ limma_voom_analysis <- function(metadata, species = c("human", "mouse")) {
                                  colnames = c("gene", colnames(v$E), "symbol"))
   create_dir(file.path(metadata$outdir, "Limma-voom"))
   out <- file.path(metadata$outdir, "Limma-voom")
-  write.table(normalisedCounts, file.path(out, "Limma-voom_normalisedcounts.txt"),
+  utils::write.table(normalisedCounts, file.path(out, "Limma-voom_normalisedcounts.txt"),
               sep = "\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
-  write.table(normalisedCounts[, c("gene", "symbol")], file.path(out, "Limma-voom_consideredgenes"),
+  utils::write.table(normalisedCounts[, c("gene", "symbol")], file.path(out, "Limma-voom_consideredgenes"),
               sep = "\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
   make_PCA(v$E, "Limma-voom", metadata$sampleinfo)
   tomove <- list.files(".", pattern = "Limma-voom_PCA")
@@ -67,14 +70,14 @@ limma_voom_analysis <- function(metadata, species = c("human", "mouse")) {
     make_volcano(input = output, proc = "Limma-voom")
     move_file(tomove = c("Limma-voom_volcano.png", "Limma-voom_MAplot.png"), out.sub[[i]])
     DEG[[i]] <- subset(output, padj < 0.05)
-    write.table(
+    utils::write.table(
       x = as.data.frame(output),
       file = file.path(out.sub[[i]], "Limma-voom_differential_expression.txt"),
       sep = "\t",
       row.names = FALSE,
       quote = FALSE)
 
-    write.table(
+    utils::write.table(
       x = as.data.frame(DEG[[i]][, c("gene", "symbol")]),
       file = file.path(out.sub[[i]], "Limma-voom_DEG.txt"),
       sep = "\t",
@@ -93,6 +96,6 @@ limma_voom_analysis <- function(metadata, species = c("human", "mouse")) {
     )
   })
 
-  return(lapply(DEG, function (x) dplyr::as_tibble(x) %>% dplyr::arrange(desc(abs(logFC)), padj)))
+  return(lapply(DEG, function (x) dplyr::as_tibble(x) %>% dplyr::arrange(dplyr::desc(abs(logFC)), padj)))
 }
 

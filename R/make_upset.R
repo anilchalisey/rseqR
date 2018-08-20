@@ -12,6 +12,8 @@
 #' @export
 
 make_upset <- function(limma, edger, deseq2) {
+  
+  . <- gene <- padj <- NULL
 
   dedata <- list(limma, edger, deseq2)
 
