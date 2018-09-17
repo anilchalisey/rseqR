@@ -143,7 +143,7 @@
 <a class="sourceLine" id="cb4-3" data-line-number="3">                              <span class="st">"grDevices"</span>, <span class="st">"ggplot2"</span>, <span class="st">"ggrepel"</span>, <span class="st">"doParallel"</span>, <span class="st">"magrittr"</span>,</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">                              <span class="st">"ggdendro"</span>, <span class="st">"viridis"</span>, <span class="st">"grid"</span>, <span class="st">"gridExtra"</span>, <span class="st">"gtable"</span>, <span class="st">"tools"</span>,</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">                              <span class="st">"crayon"</span>, <span class="st">"UpSetR"</span>, <span class="st">"devtools"</span>, <span class="st">"data.tree"</span>, <span class="st">"foreach"</span>, </a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">                              <span class="st">"matrixStats"</span>) <span class="op">%in%</span><span class="st"> </span>pkgs)]</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">                              <span class="st">"matrixStats"</span>, <span class="st">"reshape2"</span>, <span class="st">"RColorBrewer"</span>) <span class="op">%in%</span><span class="st"> </span>pkgs)]</a>
 <a class="sourceLine" id="cb4-7" data-line-number="7">install.from.bc &lt;-<span class="st"> </span>pkgs[<span class="op">!</span>(<span class="kw">c</span>(<span class="st">"tximport"</span>, <span class="st">"edgeR"</span>, <span class="st">"DESeq2"</span>, <span class="st">"limma"</span>, <span class="st">"gage"</span>, <span class="st">"org.Hs.eg.db"</span>, </a>
 <a class="sourceLine" id="cb4-8" data-line-number="8">                            <span class="st">"org.Mm.eg.db"</span>, <span class="st">"SummarizedExperiment"</span>, <span class="st">"GO.db"</span>) <span class="op">%in%</span><span class="st"> </span>pkgs)]</a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"></a>
@@ -162,11 +162,11 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>The entire workflow of rseqR may be run by a call to a single function <code>run_dea()</code>, as shown below.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">run_dea</span>(<span class="dt">sample.info =</span> <span class="st">`</span><span class="dt">system.file("extdata", "paired-example.txt", pkg = "rseqr")</span><span class="st">`</span>,</a>
+<p>The entire workflow of rseqR may be run by a call to a single function <code><a href="reference/run_dea.html">run_dea()</a></code>, as shown below.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw"><a href="reference/run_dea.html">run_dea</a></span>(<span class="dt">sample.info =</span> <span class="st">`</span><span class="dt">system.file("extdata", "paired-example.txt", pkg = "rseqr")</span><span class="st">`</span>,</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">                  <span class="dt">reference =</span> <span class="kw">c</span>(<span class="st">"WT"</span>, <span class="st">"KO1"</span>, <span class="st">"KO2"</span>), <span class="dt">species =</span> <span class="st">"human"</span>, <span class="dt">output.dir =</span> <span class="st">"results-dea"</span>,</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">                  <span class="dt">threads =</span> <span class="ot">NULL</span>, <span class="dt">index.dir =</span> <span class="ot">NULL</span>)</a></code></pre></div>
-<p>The arguments to the <code>run_dea()</code> function are:</p>
+<p>The arguments to the <code><a href="reference/run_dea.html">run_dea()</a></code> function are:</p>
 <div id="sample-info" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sample-info" class="anchor"></a>sample.info:</h3>
@@ -238,15 +238,16 @@
 <div id="running-only-part-of-the-rseqr-pipeline" class="section level2">
 <h2 class="hasAnchor">
 <a href="#running-only-part-of-the-rseqr-pipeline" class="anchor"></a>Running only part of the rseqR pipeline</h2>
-<p>If there is a need to reanalyse only a portion of the data, then this may be done using the <code>metadata.rda</code> object, which contains all the necessary information. For example, it is possible to run each of the differential analysis tools separately using the commands <code>limma_voom_analysis()</code>, <code>edger_analysis()</code>, or <code>deseq2_analysis()</code>. For example:</p>
+<p>If there is a need to reanalyse only a portion of the data, then this may be done using the <code>metadata.rda</code> object, which contains all the necessary information. For example, it is possible to run each of the differential analysis tools separately using the commands <code><a href="reference/limma_voom_analysis.html">limma_voom_analysis()</a></code>, <code><a href="reference/edger_analysis.html">edger_analysis()</a></code>, or <code><a href="reference/deseq2_analysis.html">deseq2_analysis()</a></code>. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">load</span>(<span class="st">"results/metadata.rda"</span>) <span class="co"># this will load an object called 'metadata' into the environment</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">DE_limma &lt;-<span class="st"> </span><span class="kw">limma_voom_analysis</span>(<span class="dt">metadata =</span> metadata, <span class="dt">species =</span> <span class="st">"human"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb8-2" data-line-number="2">DE_limma &lt;-<span class="st"> </span><span class="kw"><a href="reference/limma_voom_analysis.html">limma_voom_analysis</a></span>(<span class="dt">metadata =</span> metadata, <span class="dt">species =</span> <span class="st">"human"</span>)</a></code></pre></div>
 </div>
 <div id="pathway-analysis" class="section level2">
 <h2 class="hasAnchor">
 <a href="#pathway-analysis" class="anchor"></a>Pathway analysis</h2>
-<p>Gene ontology and KEGG pathway analysis may be performed using the <code>gage</code> package on the objects contained within <code>DE-results.rda</code>. Loading this RDA file will populate the environment with the objects <code>DE_limma</code>, <code>DE_edger</code>, and <code>DE_deseq2</code>. Each of these is a list with the results of pairwise differential expression analyses. In the example used abvoe, the three conditions were <code>WT</code>, <code>KO1</code>, and <code>KO2</code>; thus, the three comparisons are <code>KO1-WT</code>, <code>KO2-WT</code>, and <code>KO2-KO1</code>. To perform pathway analysis on the differential genes identified by DESeq2 for the first comparison, the following command may be used:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">pa1_deseq2 &lt;-<span class="st"> </span><span class="kw">pathway_analysis</span>(DE_deseq2[[<span class="dv">1</span>]], <span class="dt">species =</span> <span class="st">"human"</span>)</a></code></pre></div>
+<p>Gene ontology and KEGG pathway analysis may be performed using the <code>gage</code> package. This is performed by reading in the differential analysis results written out to file and submitting this to the <code><a href="reference/pathway_analysis.html">pathway_analysis()</a></code> function. In this example, we use the edgeR results.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">DEGs &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">"results/edgeR/KO1-WT/edgeR_differential_expression.txt"</span>)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">pa1_deseq2 &lt;-<span class="st"> </span><span class="kw"><a href="reference/pathway_analysis.html">pathway_analysis</a></span>(DEGs, <span class="dt">species =</span> <span class="st">"human"</span>)</a></code></pre></div>
 <p>This may be repeated as necessary for the other comparisons.</p>
 </div>
 <div id="about-rseqr" class="section level2">

@@ -7,8 +7,8 @@
 pathway_analysis(x, species = c("human", "mouse"))
 }
 \arguments{
-\item{x}{output from \code{edger_analysis()}, \code{deseq2_analysis},
-\code{limma_voom_analysis}.}
+\item{x}{data.frame object containing at least the column gene (gene IDs in ENSEMBL format) and 
+a column of logFC changes (entitled log2FoldChange or logFC)}
 
 \item{species}{character string specifying the name of the species. Only
 \code{'human'}, and \code{'mouse'} are supported at present.  [DEFAULT = human].}
