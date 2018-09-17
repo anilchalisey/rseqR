@@ -17,6 +17,8 @@ deseq2_analysis <- function(metadata, species) {
 
   threads <- metadata$threads
   doParallel::registerDoParallel(threads)
+  
+  rownames(metadata$sampleinfo) <- colnames(metadata$counts$A$counts)
 
   deseqdata <- DESeq2::DESeqDataSetFromTximport(
     txi = metadata$counts$A,

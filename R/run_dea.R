@@ -133,7 +133,12 @@ run_dea <- function(
                                       summarise = TRUE, countsFromAbundance = "lengthScaledTPM")
 
   }
-
+  
+  for (i in 1:3) {
+    colnames(metadata$counts$A[[i]]) <- metadata$sampleinfo$sample
+    colnames(metadata$counts$B[[i]]) <- metadata$sampleinfo$sample
+  }
+  
   give_note("\nPerforming differential expression analysis with Limma-voom.\n\n")
   DE_limma <- limma_voom_analysis(metadata = metadata, species = species)
 

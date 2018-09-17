@@ -1,7 +1,7 @@
 #' Title
 #'
-#' @param x output from \code{edger_analysis()}, \code{deseq2_analysis},
-#' \code{limma_voom_analysis}.
+#' @param x data.frame object containing at least the column gene (gene IDs in ENSEMBL format) and 
+#' a column of logFC changes (entitled log2FoldChange or logFC)
 #'
 #' @inheritParams run_dea
 #'
@@ -36,8 +36,7 @@ pathway_analysis <- function(x, species = c("human", "mouse")) {
   rownames(res) <- res$gene
 
   colnames(res) <- gsub("log2FoldChange", "logFC", colnames(res))
-  colnames(res) <- gsub("AveExpr", "logFC", colnames(res))
-
+  
   res <- ens2entrez(
     result = res,
     species = "human",

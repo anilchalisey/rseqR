@@ -177,10 +177,11 @@ DE_limma <- limma_voom_analysis(metadata = metadata, species = "human")
 
 ## Pathway analysis
 
-Gene ontology and KEGG pathway analysis may be performed using the `gage` package on the objects contained within `DE-results.rda`.  Loading this RDA file will populate the environment with the objects `DE_limma`, `DE_edger`, and `DE_deseq2`.  Each of these is a list with the results of pairwise differential expression analyses.  In the example used abvoe, the three conditions were `WT`, `KO1`, and `KO2`; thus, the three comparisons are `KO1-WT`, `KO2-WT`, and `KO2-KO1`.  To perform pathway analysis on the differential genes identified by DESeq2 for the first comparison, the following command may be used:
+Gene ontology and KEGG pathway analysis may be performed using the `gage` package.  This is performed by reading in the differential analysis results written out to file and submitting this to the `pathway_analysis()` function. In this example, we use the edgeR results.
 
 ```{r, eval = FALSE}
-pa1_deseq2 <- pathway_analysis(DE_deseq2[[1]], species = "human")
+DEGs <- read.csv("results/edgeR/KO1-WT/edgeR_differential_expression.txt")
+pa1_deseq2 <- pathway_analysis(DEGs, species = "human")
 ```
 
 This may be repeated as necessary for the other comparisons.
