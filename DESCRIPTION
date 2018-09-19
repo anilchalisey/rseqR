@@ -8,7 +8,7 @@ Description: An R-based pipeline to analyse RNA-seq data. This pipeline performs
   quality control of reads, generates gene and transcript level counts, performs 
   differential analysis, and gene pathway enrichment analyses.
 Depends: R (>= 3.4.0)
-SystemRequirements: Salmon, Java, FastQC, MultiQC, Cutadapt, TrimGalore!
+SystemRequirements: Salmon, FastQC, MultiQC, fastp
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
