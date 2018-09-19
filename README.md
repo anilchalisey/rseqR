@@ -89,13 +89,15 @@ following commands may be used:
 
 ``` r
 pkgs <- installed.packages()[, 1]
-install.from.cran <- pkgs[!(c("utils", "parallel", "dplyr", "data.table", "purrr", "stats",
-                              "grDevices", "ggplot2", "ggrepel", "doParallel", "magrittr",
-                              "ggdendro", "viridis", "grid", "gridExtra", "gtable", "tools",
-                              "crayon", "UpSetR", "devtools", "data.tree", "foreach", 
-                              "matrixStats", "reshape2", "RColorBrewer") %in% pkgs)]
-install.from.bc <- pkgs[!(c("tximport", "edgeR", "DESeq2", "limma", "gage", "org.Hs.eg.db", 
-                            "org.Mm.eg.db", "SummarizedExperiment", "GO.db") %in% pkgs)]
+cran.pkgs <- c("utils", "parallel", "dplyr", "data.table", "purrr", "stats",
+               "grDevices", "ggplot2", "ggrepel", "doParallel", "magrittr",
+               "ggdendro", "viridis", "grid", "gridExtra", "gtable", "tools",
+               "crayon", "UpSetR", "devtools", "data.tree", "foreach", 
+               "matrixStats", "reshape2", "RColorBrewer")
+bc.pkgs <- c("tximport", "edgeR", "DESeq2", "limma", "gage", "org.Hs.eg.db", 
+             "org.Mm.eg.db", "SummarizedExperiment", "GO.db")
+install.from.cran <- cran.pkgs[!(cran.pkgs %in% pkgs)]
+install.from.bc <- bc.pkgs[!(bc.pkgs %in% pkgs)]
 
 install.packages(install.from.cran)
 
