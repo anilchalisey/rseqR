@@ -94,7 +94,7 @@ run_dea <- function(
                          "in", file.path(output.dir, "index, based on Ensembl 93.\n\n")))
       create_dir(file.path(output.dir, "index"))
       build_index(species = species, kmer = 31, ens_release = 93, dest.dir = file.path(output.dir, "index"))
-      index.dir <- file.path(output.dir, "index", paste0(species, "transcripts_release93_index"))
+      index.dir <- file.path(output.dir, "index", paste0(species, "_transcripts_release93_index"))
     }
 
     # Run salmon
