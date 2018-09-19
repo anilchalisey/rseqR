@@ -33,7 +33,7 @@ edger_analysis <- function(metadata, species = c("human", "mouse")) {
   normmat <- normmat/exp(rowMeans(log(normmat)))
   o <- log(edgeR::calcNormFactors(counts/normmat)) + log(colSums(counts/normmat))
   d <- edgeR::DGEList(counts, group = metadata$sampleinfo$condition)
-  d <- edgeR::scaleOffset(d, t(t(log(normmat)) + o))
+  d$offset <- t(t(log(normmat)) + o)
 
   design <- stats::model.matrix(metadata$design, data = metadata$sampleinfo)
   disp <- edgeR::estimateDisp(d, design = design, robust = TRUE)
