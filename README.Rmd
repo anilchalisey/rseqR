@@ -75,25 +75,7 @@ ln -s ~/salmon-0.11.2-linux_x86_64/bin/salmon .
 ```
 
 ### R package dependencies
-There are a number of dependencies to the rseqR package detailed in the `DESCRIPTION` file.  These may be installed manually, otherwise the following commands may be used:
-
-```{r, eval = FALSE}
-pkgs <- installed.packages()[, 1]
-cran.pkgs <- c("utils", "parallel", "dplyr", "data.table", "purrr", "stats",
-               "grDevices", "ggplot2", "ggrepel", "doParallel", "magrittr",
-               "ggdendro", "viridis", "grid", "gridExtra", "gtable", "tools",
-               "crayon", "UpSetR", "devtools", "data.tree", "foreach", 
-               "matrixStats", "reshape2", "RColorBrewer")
-bc.pkgs <- c("tximport", "edgeR", "DESeq2", "limma", "gage", "org.Hs.eg.db", 
-             "org.Mm.eg.db", "SummarizedExperiment", "GO.db")
-install.from.cran <- cran.pkgs[!(cran.pkgs %in% pkgs)]
-install.from.bc <- bc.pkgs[!(bc.pkgs %in% pkgs)]
-
-install.packages(install.from.cran)
-
-source("https://bioconductor.org/biocLite.R")
-biocLite(install.from.bc)
-```
+There are a number of dependencies to the rseqR package detailed in the `DESCRIPTION` file.  These will all be installed automatically during the installation of rseqR.
 
 ### Install rseqR
 Once all dependencies are installed, then rseqR may be installed as follows:
