@@ -10,6 +10,8 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom lubridate mdy
 #' @importFrom magrittr %>%
+#' 
+#' @export
 
 read_salmon <- function(data.dir = NULL) {
   directories <- data.dir
@@ -73,7 +75,7 @@ read_salmon <- function(data.dir = NULL) {
   
   output <- list(run.info = run.info, libformat.info = lib.info, cmd.info = cmd.info)
   output <- lapply(output, function(x) {
-    rownames(x) <- targets$sample.names
+    rownames(x) <- basename(data.dir)
     return(x)
   })
   
