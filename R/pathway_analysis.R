@@ -36,11 +36,12 @@ pathway_analysis <- function(x, species = c("human", "mouse")) {
   rownames(res) <- res$gene
 
   colnames(res) <- gsub("log2FoldChange", "logFC", colnames(res))
+  colnames(res) <- gsub("FDR", "padj", colnames(res))
   
   res <- ens2entrez(
     result = res,
     species = "human",
-    columns.of.interest = c("gene", "logFC", "padj"),
+    columns.of.interest = c("gene", "logFC", "FDR"),
     colnames = c("gene", "logFC", "padj", "entrez")
   )
 
