@@ -68,7 +68,7 @@ deseq2_analysis <- function(metadata, species) {
       x = as.data.frame(output),
       file = file.path(out.sub[[i]], "DESeq2_differential_expression.txt"),
       sep = "\t",
-      row.names = FALSE,
+      row.names = TRUE,
       quote = FALSE)
 
     utils::write.table(

@@ -74,7 +74,7 @@ limma_voom_analysis <- function(metadata, species = c("human", "mouse")) {
       x = as.data.frame(output),
       file = file.path(out.sub[[i]], "Limma-voom_differential_expression.txt"),
       sep = "\t",
-      row.names = FALSE,
+      row.names = TRUE,
       quote = FALSE)
 
     utils::write.table(
