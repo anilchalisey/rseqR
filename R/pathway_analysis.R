@@ -73,7 +73,7 @@ pathway_analysis <- function(x, species = c("human", "mouse")) {
   keggres <- gage::gage(foldchanges, gsets = kegg.sigmet.gs, same.dir = TRUE)
   
   # if plotting then do so here - we plot the top 3 upregulated and downregulated
-  if (plot {
+  if (plot) {
     keggrespathways.up <- data.frame(id = rownames(keggres$greater), keggres$greater) %>%
       tbl_df() %>% 
       filter(row_number() <= 3) %>% 
