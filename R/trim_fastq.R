@@ -88,6 +88,12 @@
 #' @param threads an integer value indicating the number of parallel threads to
 #' be used by FastQC. [DEFAULT = maximum number of available threads - 1].
 #'
+#'@param multi.core an integer value indicating the number of cores to be used by cutadapt 
+#'multicore functionality requires pigz and python3 installed and accessible.
+#'
+#'@param cutadapt a character string specifing the path to the cutadapt executable,
+#' if the executable is in \code{$PATH} then it may be left as default.
+#'
 #' @export
 #'
 #' @importFrom parallel makeCluster stopCluster
@@ -102,8 +108,23 @@ trim_fastq <- function(fastq1, fastq2 = NULL, adapter1 = NULL, adapter2 = NULL,
                        clip3primeR1 = NULL, clip3primeR2 = NULL,
                        robust_check = FALSE, dest.dir = NULL,
                        threads = NULL,
+                       multi.core = NULL,
+                       cutadapt = NULL,
                        trimgalore = "trim_galore") {
-  cmd <- trimgalore
+
+cmd <- paste0(trimgalore)
+
+  if(!is.null(cutadapt)){
+    cmd <- paste0(cmd, " --path_to_cutadapt ", cutadapt)
+  }
+  
+if(!is.null(multi.core)){
+  cmd <- paste0(cmd, " --cores ", multi.core)
+}
+  
+  #cmd <- paste0(trimgalore, " --path_to_cutadapt /Users/ieo/.local/bin/cutadapt", " --cores 4")
+
+
 
   if (is.null(fastq2)) {
     paired = FALSE
@@ -161,7 +182,7 @@ trim_fastq <- function(fastq1, fastq2 = NULL, adapter1 = NULL, adapter2 = NULL,
           if (.Platform$OS.type != "windows") {
             system(command = cmd, intern = intern)
           } else {
-            shell(cmd = shQuote(cmd), shell = "bash", intern = intern)
+            shell(cmd = shQuote(cmd), shell = "zsh", intern = intern)
           }
         }
         run_cmd(tgcmd)
@@ -173,7 +194,7 @@ trim_fastq <- function(fastq1, fastq2 = NULL, adapter1 = NULL, adapter2 = NULL,
           if (.Platform$OS.type != "windows") {
             system(command = cmd, intern = intern)
           } else {
-            shell(cmd = shQuote(cmd), shell = "bash", intern = intern)
+            shell(cmd = shQuote(cmd), shell = "zsh", intern = intern)
           }
         }
         run_cmd(tgcmd)
