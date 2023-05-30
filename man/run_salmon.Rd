@@ -4,10 +4,21 @@
 \alias{run_salmon}
 \title{Quantify transcript abundances using Salmon}
 \usage{
-run_salmon(fastq1, fastq2 = NULL, index.dir, dest.dir = "SALMON",
-  salmon = "salmon", threads = NULL, advanced.opts = NULL,
-  bam = FALSE, bootstraps = 0, seqBias = TRUE, gcBias = TRUE,
-  posBias = FALSE, allowOrphans = FALSE)
+run_salmon(
+  fastq1,
+  fastq2 = NULL,
+  index.dir,
+  dest.dir = "SALMON",
+  salmon = "salmon",
+  threads = NULL,
+  advanced.opts = NULL,
+  bam = FALSE,
+  bootstraps = 0,
+  seqBias = TRUE,
+  gcBias = TRUE,
+  posBias = FALSE,
+  allowOrphans = FALSE
+)
 }
 \arguments{
 \item{fastq1}{a character vector indicating the read files to be trimmed.}

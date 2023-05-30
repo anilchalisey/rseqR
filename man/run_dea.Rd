@@ -4,11 +4,24 @@
 \alias{run_dea}
 \title{Run differential expression analysis}
 \usage{
-run_dea(sample.info, reference = NULL, species = c("human", "mouse"),
-  output.dir, threads = NULL, fastqc = "fastqc", multiqc = "multiqc",
-  index.dir = NULL, salmon = "salmon", bam = FALSE, bootstraps = 0,
-  seqBias = TRUE, gcBias = TRUE, posBias = FALSE,
-  allowOrphans = FALSE, advanced.opts = NULL)
+run_dea(
+  sample.info,
+  reference = NULL,
+  species = c("human", "mouse"),
+  output.dir,
+  threads = NULL,
+  fastqc = "fastqc",
+  multiqc = "multiqc",
+  index.dir = NULL,
+  salmon = "salmon",
+  bam = FALSE,
+  bootstraps = 0,
+  seqBias = TRUE,
+  gcBias = TRUE,
+  posBias = FALSE,
+  allowOrphans = FALSE,
+  advanced.opts = NULL
+)
 }
 \arguments{
 \item{sample.info}{character string giving the path to a tab-delimited text
@@ -87,7 +100,7 @@ targets.file <- data.frame(
   condition = c(rep("BUFF", 2), rep("OX", 2), rep("UNT", 2)),
   batch = rep(1:2, times = 3))
 write.table(targets.file, "targets.txt", col.names = TRUE,
-  row.names = FALSE, sep = "\\t", quote = FALSE)
+  row.names = FALSE, sep = "\t", quote = FALSE)
 run_dea(sample.info = "targets.txt", reference = c("UNT", "BUFF", "OX"),
         species = "human", output.dir = "results", index.dir = NULL)
 }

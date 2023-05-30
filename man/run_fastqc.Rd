@@ -4,8 +4,12 @@
 \alias{run_fastqc}
 \title{QC reports for fastq files using FastQC}
 \usage{
-run_fastqc(fastqc.files = NULL, dest.dir = "FASTQC", threads = NULL,
-  fastqc = "fastqc")
+run_fastqc(
+  fastqc.files = NULL,
+  dest.dir = "FASTQC",
+  threads = NULL,
+  fastqc = "fastqc"
+)
 }
 \arguments{
 \item{fastqc.files}{character vector of paths to fastq files. [DEFAULT = NULL].}

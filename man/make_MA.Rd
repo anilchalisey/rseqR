@@ -4,9 +4,15 @@
 \alias{make_MA}
 \title{Create MA plot}
 \usage{
-make_MA(data, fdr = 0.05, label.rectangle = FALSE,
-  proc = c("Limma-voom", "edgeR", "DESeq2"), top = 0,
-  select.method = c("padj", "logfc"), main = NULL)
+make_MA(
+  data,
+  fdr = 0.05,
+  label.rectangle = FALSE,
+  proc = c("Limma-voom", "edgeR", "DESeq2"),
+  top = 0,
+  select.method = c("padj", "logfc"),
+  main = NULL
+)
 }
 \arguments{
 \item{data}{\code{matrix} or \code{data.frame} with the columns for average

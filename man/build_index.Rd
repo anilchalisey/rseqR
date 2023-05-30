@@ -4,8 +4,12 @@
 \alias{build_index}
 \title{Build index for mapping using Salmon}
 \usage{
-build_index(species = c("human", "mouse"), kmer = 31,
-  ens_release = 93, dest.dir)
+build_index(
+  species = c("human", "mouse"),
+  kmer = 31,
+  ens_release = 93,
+  dest.dir
+)
 }
 \arguments{
 \item{species}{character string specifying the name of the species. Only

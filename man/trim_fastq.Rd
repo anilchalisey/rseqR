@@ -4,13 +4,31 @@
 \alias{trim_fastq}
 \title{An R-based wrapper for Trim Galore!}
 \usage{
-trim_fastq(fastq1, fastq2 = NULL, adapter1 = NULL, adapter2 = NULL,
-  illumina = FALSE, nextera = FALSE, small_rna = FALSE,
-  minlength = 20, minqual = 20, trimN = TRUE,
-  retainUnpaired = TRUE, retain1length = 35, retain2length = 35,
-  clipR1 = NULL, clipR2 = NULL, clip3primeR1 = NULL,
-  clip3primeR2 = NULL, robust_check = FALSE, dest.dir = NULL,
-  threads = NULL, trimgalore = "trim_galore")
+trim_fastq(
+  fastq1,
+  fastq2 = NULL,
+  adapter1 = NULL,
+  adapter2 = NULL,
+  illumina = FALSE,
+  nextera = FALSE,
+  small_rna = FALSE,
+  minlength = 20,
+  minqual = 20,
+  trimN = TRUE,
+  retainUnpaired = TRUE,
+  retain1length = 35,
+  retain2length = 35,
+  clipR1 = NULL,
+  clipR2 = NULL,
+  clip3primeR1 = NULL,
+  clip3primeR2 = NULL,
+  robust_check = FALSE,
+  dest.dir = NULL,
+  threads = NULL,
+  multi.core = NULL,
+  cutadapt = NULL,
+  trimgalore = "trim_galore"
+)
 }
 \arguments{
 \item{fastq1}{a character vector indicating the read files to be trimmed.}
@@ -108,6 +126,12 @@ a directory named "TRIMMED_FASTQC" is created in the current working directory
 
 \item{threads}{an integer value indicating the number of parallel threads to
 be used by FastQC. [DEFAULT = maximum number of available threads - 1].}
+
+\item{multi.core}{an integer value indicating the number of cores to be used by cutadapt 
+multicore functionality requires pigz and python3 installed and accessible.}
+
+\item{cutadapt}{a character string specifing the path to the cutadapt executable,
+if the executable is in \code{$PATH} then it may be left as default.}
 
 \item{trimgalore}{a character string specifying the path to the trimgalore executable.
 On Unix systems, if the executable is in \code{$PATH}, then it may be left as

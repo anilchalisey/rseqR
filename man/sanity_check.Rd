@@ -4,8 +4,13 @@
 \alias{sanity_check}
 \title{Import the metadata and check it is correct}
 \usage{
-sanity_check(sample.info, reference = NULL, species = c("human",
-  "mouse"), output.dir, threads = NULL)
+sanity_check(
+  sample.info,
+  reference = NULL,
+  species = c("human", "mouse"),
+  output.dir,
+  threads = NULL
+)
 }
 \arguments{
 \item{sample.info}{character string giving the path to a tab-delimited text

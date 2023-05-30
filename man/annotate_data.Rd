@@ -4,8 +4,11 @@
 \alias{annotate_data}
 \title{Annotate gene data}
 \usage{
-annotate_data(data, id.type = c("ensgene", "symbol", "entrez"),
-  species = c("human", "mouse"))
+annotate_data(
+  data,
+  id.type = c("ensgene", "symbol", "entrez"),
+  species = c("human", "mouse")
+)
 }
 \arguments{
 \item{data}{matrix or data.frame object whereby rownames are gene IDs}

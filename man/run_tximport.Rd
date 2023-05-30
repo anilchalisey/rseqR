@@ -4,9 +4,12 @@
 \alias{run_tximport}
 \title{Wrapper function to run tximport}
 \usage{
-run_tximport(species = c("human", "mouse"), salmon.files,
-  summarise = TRUE, countsFromAbundance = c("no", "scaledTPM",
-  "lengthScaledTPM"))
+run_tximport(
+  species = c("human", "mouse"),
+  salmon.files,
+  summarise = TRUE,
+  countsFromAbundance = c("no", "scaledTPM", "lengthScaledTPM")
+)
 }
 \arguments{
 \item{species}{character string specifying the name of the species. Only
